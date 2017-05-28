@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import AsideForecast from './components/AsideForecast/AsideForecast';
+import './Weathrly.css';
 
 class Weathrly extends Component {
   render() {
     return (
-      <h1>Test</h1>
+      <section className="Weathrly">
+        <AsideForecast />
+      </section>
     );
   }
 }
