@@ -10,7 +10,6 @@ function AsideForecast() {
 
   return (
     <aside className='AsideForecast'>
-
       <div className="top">
         <h1 className="city">Denver, CO</h1>
         <h2 className="date">Sun, May 28 2017</h2>
