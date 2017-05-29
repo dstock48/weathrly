@@ -1,0 +1,29 @@
+.TenDayRow {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  color: #979797;
+  font-size: 20px;
+}
+
+.day {
+  margin-right: auto;
+}
+
+.condition,
+.hourly-icon,
+.hi-low-temp {
+  margin-left: 40px;
+}
+
+.condition {
+
+}
+
+.hourly-icon {
+  height: 30px;
+}
+
+.hi-low-temp {
+  font-size: 24px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HourlyRow from '../HourlyRow/HourlyRow';
+import TenDayRow from '../TenDayRow/TenDayRow';
 import './DetailList.css';
 
 class DetailList extends Component {
@@ -15,6 +16,7 @@ class DetailList extends Component {
           <a className="tab">10 Day</a>
         </nav>
         <section className="list">
+          {/* <HourlyRow /> */}
           <HourlyRow />
           <HourlyRow />
           <HourlyRow />

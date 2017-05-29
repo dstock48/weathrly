@@ -1,7 +1,7 @@
 .DetailList {
   height: 100%;
   margin: 0 auto;
-  /*border: 1px solid black;*/
+  overflow: scroll;
 }
 
 .list-tabs {
@@ -17,13 +17,14 @@
   -o-transition: border-bottom 200ms;
   transition: border-bottom 200ms;
 }
-.tab:hover,
+.tab:hover:not(.tab-active),
 .tab-active {
-  border-bottom: 4px solid #D62C2C;
+  border-bottom: 4px solid #6a6a6a;
   color: #3B3B3B;
   cursor: pointer;
 }
 
 .tab-active {
+  border-bottom: 4px solid #D62C2C;
   font-weight: 600;
 }
