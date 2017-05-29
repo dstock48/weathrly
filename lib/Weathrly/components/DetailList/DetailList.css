@@ -1,0 +1,29 @@
+.DetailList {
+  height: 100%;
+  margin: 0 auto;
+  /*border: 1px solid black;*/
+}
+
+.list-tabs {
+  padding-bottom: 5px;
+  border-bottom: 4px solid #E0E0E0;
+}
+
+.tab {
+  padding: 0 7px 5px;
+  margin-right: 25px;
+  color: #979797;
+  -webkit-transition: border-bottom 200ms;
+  -o-transition: border-bottom 200ms;
+  transition: border-bottom 200ms;
+}
+.tab:hover,
+.tab-active {
+  border-bottom: 4px solid #D62C2C;
+  color: #3B3B3B;
+  cursor: pointer;
+}
+
+.tab-active {
+  font-weight: 600;
+}
