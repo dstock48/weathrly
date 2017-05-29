@@ -1,5 +1,7 @@
 .ForecastDetail {
-  width: 60%;
+  flex: 1;
   padding: 20px 40px;
   background-color: #EFEFEF;
+  position: relative;
+  border-left: 1px solid #c3c3c3;
 }
