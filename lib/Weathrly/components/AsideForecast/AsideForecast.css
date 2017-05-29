@@ -5,7 +5,7 @@
   justify-content: space-between;
   height: 100%;
   width: 40%;
-  background-color: magenta;
+  background: linear-gradient(rgba(239, 204, 56, 0.77), rgba(220, 32, 32, 0.68));
   padding: 20px;
 }
 

@@ -1,0 +1,29 @@
+.HourlyRow {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  color: #979797;
+  font-size: 20px;
+}
+
+.time {
+  margin-right: auto;
+}
+
+.condition,
+.hourly-icon,
+.hourly-temp {
+  margin-left: 40px;
+}
+
+.condition {
+
+}
+
+.hourly-icon {
+  height: 30px;
+}
+
+.hourly-temp {
+  font-size: 24px;
+}
