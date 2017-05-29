@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import HourlyRow from '../HourlyRow/HourlyRow';
-import TenDayRow from '../TenDayRow/TenDayRow';
+import React, { Component } from 'react';  // eslint-disable-line
+import HourlyRow from '../HourlyRow/HourlyRow';  // eslint-disable-line
+import TenDayRow from '../TenDayRow/TenDayRow';  // eslint-disable-line
 import './DetailList.css';
 
 class DetailList extends Component {
@@ -26,7 +26,7 @@ class DetailList extends Component {
           <HourlyRow />
         </section>
       </section>
-    )
+    );
   }
 }
 
