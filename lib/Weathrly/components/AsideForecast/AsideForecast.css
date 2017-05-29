@@ -4,9 +4,15 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  width: 40%;
-  background: linear-gradient(rgba(239, 204, 56, 0.77), rgba(220, 32, 32, 0.68));
+  width: 33%;
+  max-width: 350px;
+  /*background: linear-gradient(#434672, #637981);*/
+  /*background: linear-gradient(#64D5E4, #A9E4BE);*/
+  /*background: linear-gradient(#A9DBEE, #4F8EB3);*/
+  /*background: linear-gradient(#B130DE, #463E9C);*/
+  background: linear-gradient(#E86868, #F3D766);
   padding: 20px;
+  color: #000;
 }
 
 .top,
@@ -21,11 +27,13 @@
 .city {
   font-size: 40px;
   font-weight: 600;
+  margin-bottom: -6px;
 }
 
 .date {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
+  mix-blend-mode: overlay;
 }
 
 .current-temp {
@@ -48,13 +56,16 @@
 .weather-condition {
   font-size: 24px;
   text-transform: uppercase;
+  mix-blend-mode: overlay;
 }
 
 .hi-low {
   font-size: 36px;
   margin-bottom: 30px;
+  mix-blend-mode:  overlay;
 }
 
 .weather-summary {
+  width: 75%;
   text-align: center;
 }

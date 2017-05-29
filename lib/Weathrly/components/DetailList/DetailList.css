@@ -1,6 +1,5 @@
 .DetailList {
-  height: 100%;
-  margin: 0 auto;
+  margin: 60px auto 0;
   overflow: scroll;
 }
 
@@ -10,21 +9,23 @@
 }
 
 .tab {
-  padding: 0 7px 5px;
+  padding: 5px 8px;
   margin-right: 25px;
   color: #979797;
-  -webkit-transition: border-bottom 200ms;
-  -o-transition: border-bottom 200ms;
-  transition: border-bottom 200ms;
+  border-bottom: 4px solid transparent;
+  transition: 100ms;
 }
-.tab:hover:not(.tab-active),
-.tab-active {
-  border-bottom: 4px solid #6a6a6a;
+.tab:hover {
   color: #3B3B3B;
   cursor: pointer;
+  border-bottom: 4px solid #6a6a6a;
 }
 
-.tab-active {
+.tab.tab-active {
+  color: #3B3B3B;
   border-bottom: 4px solid #D62C2C;
+  font-weight: 600;
+}
+.tab.tab-active:hover {
   font-weight: 600;
 }

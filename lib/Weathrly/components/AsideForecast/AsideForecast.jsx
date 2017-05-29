@@ -20,7 +20,7 @@ function AsideForecast() {
       <div className="middle">
         <p className="current-temp">69<span className="deg">&deg;</span></p>
         <img className="weather-icon" src="./lib/assets/thunder-icon.svg" alt="weather condition icon"/>
-        <p className="weather-condition">Partly Cloudy</p>
+        <p className="weather-condition">Thunderstorm</p>
         <p className="hi-low">{highLow}</p>
       </div>
 
