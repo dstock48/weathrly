@@ -1,17 +1,15 @@
-import React from 'react';
+import React from 'react'; // eslint-disable-line
 import './AsideForecast.css';
-// import icons from "../../../utils/weather-icons";
+
 
 function AsideForecast() {
-
   // const cityState = `${props.city}, ${props.state}`;
   // const date =
   // const
   const highLow = `${70}° / ${50}°`;
 
-  return(
+  return (
     <aside className='AsideForecast'>
-
       <div className="top">
         <h1 className="city">Denver, CO</h1>
         <h2 className="date">Sun, May 28 2017</h2>
@@ -27,9 +25,8 @@ function AsideForecast() {
       <div className="bottom">
         <p className="weather-summary">Windy, chance of a few late night showers. Lows overnight in the mid 50s.</p>
       </div>
-
     </aside>
-  )
+  );
 }
 
 export default AsideForecast;
