@@ -20,9 +20,10 @@ class DetailList extends Component {
           <HourlyRow />
           <HourlyRow />
           <HourlyRow />
-          <HourlyRow />
-          <HourlyRow />
-          <HourlyRow />
+          <TenDayRow />
+          <TenDayRow />
+          <TenDayRow />
+          <TenDayRow />
         </section>
       </section>
     );
