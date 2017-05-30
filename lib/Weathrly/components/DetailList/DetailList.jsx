@@ -16,7 +16,6 @@ class DetailList extends Component {
           <a className="tab">10 Day</a>
         </nav>
         <section className="list">
-          {/* <HourlyRow /> */}
           <HourlyRow />
           <HourlyRow />
           <HourlyRow />
