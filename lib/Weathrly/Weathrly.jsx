@@ -12,16 +12,11 @@ class Weathrly extends Component {
     };
   }
 
-  componentWillMount() {
-    this.getWeatherData();
-  }
-
-  getWeatherData() {
+  componentDidMount() {
     fetch('http://api.wunderground.com/api/35bf11f478a3a114/conditions/hourly/forecast/forecast10day/hourly10day/q/CO/Denver.json')
     .then(res => res.json())
-    .then(data => {
+    .then((data) => {
       const cityData = new City(data);
-      console.log(cityData);
       this.setState({ cityData });
     });
   }
@@ -29,7 +24,7 @@ class Weathrly extends Component {
   render() {
     return (
       <section className="Weathrly">
-        <AsideForecast />
+        <AsideForecast data={this.state.cityData} />
         <ForecastDetail />
       </section>
     );
