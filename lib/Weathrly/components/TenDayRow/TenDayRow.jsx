@@ -1,17 +1,21 @@
 import React from 'react';
+import weatherIcons from '../../../utils/weather-icons';
 import './TenDayRow.css';
 
-function TenDayRow() {
+function TenDayRow({dayData}) {
   const tempColor = {
     color: '#D62C2C'
   }
 
+  const icon = `./lib/assets/weather-icons/black/${weatherIcons[dayData.icon]}.svg`;
+  const highLow = `${dayData.highTemp}° / ${dayData.lowTemp}°`;
+
   return (
     <article className="TenDayRow">
-      <p className="day">Monday</p>
-      <p className="condition">Partly Cloudy</p>
-      <img src="./lib/assets/thunder-icon.svg" alt="" className="hourly-icon"/>
-      <p style={tempColor} className="hi-low-temp">69° / 45°</p>
+      <p className="day">{dayData.dayName}</p>
+      <p className="condition">{dayData.condition}</p>
+      <img src={icon} alt="" className="hourly-icon"/>
+      <p style={tempColor} className="hi-low-temp">{highLow}</p>
     </article>
   )
 }

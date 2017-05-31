@@ -3,11 +3,11 @@ import DetailList from '../DetailList/DetailList';  // eslint-disable-line
 import SearchInput from '../SearchInput/SearchInput';  // eslint-disable-line
 import './ForecastDetail.css'  // eslint-disable-line
 
-function ForecastDetail() {
+function ForecastDetail({ data, tabName, handler }) {
   return (
     <main className="ForecastDetail">
       <SearchInput />
-      <DetailList />
+      <DetailList data={data} tabName={tabName} handler={handler} />
     </main>
   );
 }

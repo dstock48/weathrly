@@ -1,17 +1,20 @@
 import React from 'react';
+import weatherIcons from '../../../utils/weather-icons';
 import './HourlyRow.css';
 
-function HourlyRow() {
+function HourlyRow({hourData}) {
   const tempColor = {
     color: '#D62C2C'
   }
-  
+
+  const icon = `./lib/assets/weather-icons/black/${weatherIcons[hourData.icon]}.svg`;
+
   return (
     <article className="HourlyRow">
-      <p className="time">1:00p</p>
-      <p className="condition">Partly Cloudy</p>
-      <img src="./lib/assets/thunder-icon.svg" alt="" className="hourly-icon"/>
-      <p style={tempColor} className="hourly-temp">69°</p>
+      <p className="time">{hourData.time}</p>
+      <p className="condition">{hourData.condition}</p>
+      <img src={icon} alt="" className="hourly-icon"/>
+      <p style={tempColor} className="hourly-temp">{`${hourData.temp}°`}</p>
     </article>
   )
 }
