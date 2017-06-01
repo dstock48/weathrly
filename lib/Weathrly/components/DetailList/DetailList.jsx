@@ -14,19 +14,25 @@ const DetailList = ({ data, tabName, handler }) => {
 
   const tenDayData = data.tenDayData.map((hour, i) => <TenDayRow key={Date.now() * i} dayData={hour} data={data} />);
 
-  let hourlyTabStyle = 'tab tab-active';
-  let tenTabStyle = 'tab';
+  let borderColor = { borderColor: '#D62C2C' };
+
+  if (data.currentHour >= data.sunSetTime || data.currentHour <= data.sunRiseTime) {
+    borderColor = { borderColor: '#7438B8' };
+  }
+
+  let hourlyTab = <a style={borderColor} onClick={handler} className="tab tab-active">Hourly</a>;
+  let tenDayTab = <a onClick={handler} className="tab">10 Day</a>;
 
   if (tabName === '10 Day') {
-    hourlyTabStyle = 'tab';
-    tenTabStyle = 'tab tab-active';
+    hourlyTab = <a onClick={handler} className="tab">Hourly</a>;
+    tenDayTab = <a style={borderColor} onClick={handler} className="tab tab-active">10 Day</a>;
   }
 
   return (
     <section className="DetailList">
       <nav className="list-tabs">
-        <a onClick={handler} className={hourlyTabStyle}>Hourly</a>
-        <a onClick={handler} className={tenTabStyle}>10 Day</a>
+        {hourlyTab}
+        {tenDayTab}
       </nav>
       <section className="list">
         { tabName === 'Hourly' ? sevenHourData : tenDayData }

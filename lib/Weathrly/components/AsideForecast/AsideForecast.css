@@ -30,9 +30,14 @@
   text-align: center;
 }
 
-.date {
-  font-size: 18px;
+.date,
+.current-time {
   font-weight: 300;
+  text-align: center;
+}
+
+.current-time {
+  font-size: 16px;
 }
 
 .current-temp {
@@ -42,7 +47,7 @@
 
 .weather-icon {
   width: 130px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .deg {
@@ -55,6 +60,7 @@
 .weather-condition {
   font-size: 24px;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 .hi-low {
@@ -65,4 +71,5 @@
 .weather-summary {
   width: 75%;
   text-align: center;
+  font-size: 22px;
 }
