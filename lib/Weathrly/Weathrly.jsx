@@ -11,8 +11,8 @@ class Weathrly extends Component {
     this.state = {
       cityData: {},
       tabName: 'Hourly',
-      // city: 'autoip',
-      city: 'paris france',
+      city: 'autoip',
+      // city: 'paris france',
       inputValue: '',
     };
   }

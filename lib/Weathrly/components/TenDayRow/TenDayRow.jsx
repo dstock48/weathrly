@@ -2,10 +2,16 @@ import React from 'react';  // eslint-disable-line
 import weatherIcons from '../../../utils/weather-icons';
 import './TenDayRow.css';
 
-function TenDayRow({ dayData }) {
-  const tempColor = {
+function TenDayRow({ dayData, data }) {
+  let tempColor = {
     color: '#D62C2C',
   };
+
+  if (data.currentHour >= data.sunSetTime || data.currentHour <= data.sunRiseTime) {
+    tempColor = {
+      color: '#7438B8',
+    };
+  }
 
   const icon = `./lib/assets/weather-icons/grey/${weatherIcons[dayData.icon]}.svg`;
   const highLow = `${dayData.highTemp}° / ${dayData.lowTemp}°`;

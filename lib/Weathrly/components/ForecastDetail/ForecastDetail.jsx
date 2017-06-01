@@ -6,7 +6,7 @@ import './ForecastDetail.css'  // eslint-disable-line
 function ForecastDetail({ data, tabName, handler, locationHandler }) {
   return (
     <main className="ForecastDetail">
-      <SearchInput handlers={locationHandler} />
+      <SearchInput data={data} handlers={locationHandler} />
       <DetailList data={data} tabName={tabName} handler={handler} />
     </main>
   );

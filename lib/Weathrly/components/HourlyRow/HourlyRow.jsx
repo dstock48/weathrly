@@ -3,11 +3,18 @@ import weatherIcons from '../../../utils/weather-icons';
 import './HourlyRow.css';
 
 function HourlyRow({ hourData, data }) {
-  const tempColor = {
+  let tempColor = {
     color: '#D62C2C',
   };
 
   let icon = `./lib/assets/weather-icons/grey/${weatherIcons[hourData.icon]}.svg`;
+
+
+  if (data.currentHour >= data.sunSetTime || data.currentHour <= data.sunRiseTime) {
+    tempColor = {
+      color: '#7438B8',
+    };
+  }
 
   if (hourData.hour >= data.sunSetTime || hourData.hour <= data.sunRiseTime) {
     icon = `./lib/assets/weather-icons/grey/${weatherIcons[`nt_${hourData.icon}`]}.svg`;

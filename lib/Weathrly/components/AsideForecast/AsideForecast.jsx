@@ -11,16 +11,25 @@ function AsideForecast({ data }) {
 
   const highLow = `${data.highTemp}° / ${data.lowTemp}°`;
 
+  let backgroundGradient = {
+    background: 'linear-gradient(#E86868, #F3D766)',
+  };
+
   let icon = `./lib/assets/weather-icons/black/${weatherIcons[data.icon]}.svg`;
   if (data.currentHour >= data.sunSetTime || data.currentHour <= data.sunRiseTime) {
-    icon = `./lib/assets/weather-icons/black/${weatherIcons[`nt_${data.icon}`]}.svg`;
+    icon = `./lib/assets/weather-icons/white/${weatherIcons[`nt_${data.icon}`]}.svg`;
+    backgroundGradient = {
+      color: '#fff',
+      background: 'linear-gradient(#B130DE, #463E9C)',
+    };
   }
 
   const { day, monthname_short: month, weekday_short: wkday, year } = data.date;
   const fullDate = `${wkday}, ${month} ${day} ${year}`;
 
+
   return (
-    <aside className='AsideForecast'>
+    <aside className='AsideForecast' style={backgroundGradient}>
       <div className="top">
         <h1 className="city">{ data.locationInfo.full }</h1>
         <h2 className="date">{ fullDate }</h2>

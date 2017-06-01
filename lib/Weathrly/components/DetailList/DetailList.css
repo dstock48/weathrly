@@ -23,7 +23,7 @@
 
 .tab.tab-active {
   color: #3B3B3B;
-  border-bottom: 4px solid #D62C2C;
+  border-bottom: 4px solid;
   font-weight: 600;
 }
 .tab.tab-active:hover {
