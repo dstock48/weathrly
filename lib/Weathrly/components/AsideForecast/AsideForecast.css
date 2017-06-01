@@ -6,10 +6,10 @@
   height: 100%;
   width: 33%;
   max-width: 450px;
-  /*background: linear-gradient(#434672, #637981);*/
-  /*background: linear-gradient(#64D5E4, #A9E4BE);*/
-  /*background: linear-gradient(#A9DBEE, #4F8EB3);*/
-  /*background: linear-gradient(#B130DE, #463E9C);*/
+  /*background: linear-gradient(#434672, #637981);
+  background: linear-gradient(#64D5E4, #A9E4BE);
+  background: linear-gradient(#A9DBEE, #4F8EB3);
+  background: linear-gradient(#B130DE, #463E9C);*/
   background: linear-gradient(#E86868, #F3D766);
   padding: 20px;
   color: #000;

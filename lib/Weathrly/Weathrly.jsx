@@ -4,6 +4,7 @@ import ForecastDetail from './components/ForecastDetail/ForecastDetail';  // esl
 import dataDenver from './data.js';  // eslint-disable-line
 import './Weathrly.css';
 import City from '../model/City';
+import key from '../utils/apiKey';
 
 class Weathrly extends Component {
   constructor() {
@@ -22,14 +23,17 @@ class Weathrly extends Component {
   }
 
   updateWeatherData(city) {
-    const url = `http://api.wunderground.com/api/35bf11f478a3a114/astronomy/conditions/hourly/forecast/forecast10day/hourly10day/geolookup/q/${city}.json`;
+    const url = `http://api.wunderground.com/api/${key}/astronomy/conditions/hourly/forecast/forecast10day/hourly10day/geolookup/q/${city}.json`;
 
-    fetch(url)
-    .then(res => res.json())
-    .then((data) => {
-      const cityData = new City(data);
-      this.setState({ cityData });
-    });
+    // fetch(url)
+    // .then(res => res.json())
+    // .then((data) => {
+    //   const cityData = new City(data);
+    //   this.setState({ cityData });
+    // });
+
+    const cityData = new City(dataDenver);
+    this.setState({ cityData })
   }
 
   changeTab(e) {
