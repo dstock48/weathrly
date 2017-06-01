@@ -1,5 +1,6 @@
 import React from 'react'; // eslint-disable-line
 import weatherIcons from '../../../utils/weather-icons';
+import colorCondition from '../../../utils/colorCondition';
 import './AsideForecast.css';
 
 function AsideForecast({ data }) {
@@ -9,19 +10,22 @@ function AsideForecast({ data }) {
     );
   }
 
+  if (!data.condition) {
+    data.condition = 'Unknown';
+  }
+
   const highLow = `${data.highTemp}° / ${data.lowTemp}°`;
+  const iconColor = colorCondition[data.condition].iconColor;
+  let backgroundGradient = colorCondition[data.condition].style;
+  let icon = `./lib/assets/weather-icons/${iconColor}/${weatherIcons[data.icon]}.svg`;
 
-  let backgroundGradient = {
-    background: 'linear-gradient(#E86868, #F3D766)',
-  };
+  if (data.icon === 'clear' && parseInt(data.curTemp, 10) < 50) {
+    backgroundGradient = colorCondition['Partly Cloudy'].style;
+  }
 
-  let icon = `./lib/assets/weather-icons/black/${weatherIcons[data.icon]}.svg`;
   if (data.currentHour >= data.sunSetTime || data.currentHour <= data.sunRiseTime) {
     icon = `./lib/assets/weather-icons/white/${weatherIcons[`nt_${data.icon}`]}.svg`;
-    backgroundGradient = {
-      color: '#fff',
-      background: 'linear-gradient(#B130DE, #463E9C)',
-    };
+    backgroundGradient = colorCondition.night.style;
   }
 
   return (
