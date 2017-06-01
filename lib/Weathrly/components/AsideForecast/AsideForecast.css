@@ -5,7 +5,7 @@
   justify-content: space-between;
   height: 100%;
   width: 33%;
-  max-width: 350px;
+  max-width: 450px;
   /*background: linear-gradient(#434672, #637981);*/
   /*background: linear-gradient(#64D5E4, #A9E4BE);*/
   /*background: linear-gradient(#A9DBEE, #4F8EB3);*/
@@ -27,13 +27,12 @@
 .city {
   font-size: 40px;
   font-weight: 600;
-  margin-bottom: -6px;
+  text-align: center;
 }
 
 .date {
   font-size: 18px;
   font-weight: 300;
-  /*mix-blend-mode: overlay;*/
 }
 
 .current-temp {
@@ -56,13 +55,11 @@
 .weather-condition {
   font-size: 24px;
   text-transform: uppercase;
-  /*mix-blend-mode: overlay;*/
 }
 
 .hi-low {
   font-size: 36px;
   margin-bottom: 30px;
-  /*mix-blend-mode:  overlay;*/
 }
 
 .weather-summary {

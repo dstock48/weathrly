@@ -10,7 +10,12 @@ function AsideForecast({ data }) {
   }
 
   const highLow = `${data.highTemp}° / ${data.lowTemp}°`;
-  const icon = `./lib/assets/weather-icons/black/${weatherIcons[data.icon]}.svg`;
+
+  let icon = `./lib/assets/weather-icons/black/${weatherIcons[data.icon]}.svg`;
+  if (data.currentHour >= data.sunSetTime || data.currentHour <= data.sunRiseTime) {
+    icon = `./lib/assets/weather-icons/black/${weatherIcons[`nt_${data.icon}`]}.svg`;
+  }
+
   const { day, monthname_short: month, weekday_short: wkday, year } = data.date;
   const fullDate = `${wkday}, ${month} ${day} ${year}`;
 

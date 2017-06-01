@@ -3,16 +3,16 @@ import HourlyRow from '../HourlyRow/HourlyRow';  // eslint-disable-line
 import TenDayRow from '../TenDayRow/TenDayRow';  // eslint-disable-line
 import './DetailList.css';
 
-const DetailList = ({data, tabName, handler}) => {
+const DetailList = ({ data, tabName, handler }) => {
   if (!data.sevenHourData) {
     return (
       <section className='DetailList'></section>
     );
   }
 
-  const sevenHourData = data.sevenHourData.map((hour, i) => <HourlyRow key={Date.now() * i} hourData={hour} />);
+  const sevenHourData = data.sevenHourData.map((hour, i) => <HourlyRow key={Date.now() * i} hourData={hour} data={data} />);
 
-  const tenDayData = data.tenDayData.map((hour, i) => <TenDayRow key={Date.now() * i} dayData={hour} />);
+  const tenDayData = data.tenDayData.map((hour, i) => <TenDayRow key={Date.now() * i} dayData={hour} data={data} />);
 
   let hourlyTabStyle = 'tab tab-active';
   let tenTabStyle = 'tab';
@@ -33,6 +33,6 @@ const DetailList = ({data, tabName, handler}) => {
       </section>
     </section>
   );
-}
+};
 
 export default DetailList;
