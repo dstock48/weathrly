@@ -14,14 +14,10 @@ const DetailList = ({ data, tabName, handler }) => {
 
   const tenDayData = data.tenDayData.map((hour, i) => <TenDayRow key={Date.now() * i} dayData={hour} data={data} />);
 
-  let borderColor = {
-    borderColor: '#D62C2C',
-  };
+  let borderColor = { borderColor: '#D62C2C' };
 
   if (data.currentHour >= data.sunSetTime || data.currentHour <= data.sunRiseTime) {
-    borderColor = {
-      borderColor: '#7438B8',
-    };
+    borderColor = { borderColor: '#7438B8' };
   }
 
   let hourlyTab = <a style={borderColor} onClick={handler} className="tab tab-active">Hourly</a>;

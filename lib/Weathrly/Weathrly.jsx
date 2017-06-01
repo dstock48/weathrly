@@ -38,6 +38,9 @@ class Weathrly extends Component {
   }
 
   getLocationInput(e) {
+    if (e.key === 'Enter') {
+      this.setLocation();
+    }
     this.setState({
       inputValue: e.target.value,
     });
@@ -62,7 +65,7 @@ class Weathrly extends Component {
     return (
       <section className="Weathrly">
         <AsideForecast data={cityData} />
-        <ForecastDetail data={cityData} tabName={tabName} handler={this.changeTab.bind(this)} locationHandler={handleLocation}/>
+        <ForecastDetail data={cityData} tabName={tabName} handler={this.changeTab.bind(this)} locationHandler={handleLocation} input={this.state.inputValue}/>
       </section>
     );
   }

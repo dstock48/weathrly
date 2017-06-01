@@ -24,15 +24,11 @@ function AsideForecast({ data }) {
     };
   }
 
-  const { day, monthname_short: month, weekday_short: wkday, year } = data.date;
-  const fullDate = `${wkday}, ${month} ${day} ${year}`;
-
-
   return (
     <aside className='AsideForecast' style={backgroundGradient}>
       <div className="top">
         <h1 className="city">{ data.locationInfo.full }</h1>
-        <h2 className="date">{ fullDate }</h2>
+        <h2 className="current-time">{ data.lastUpdateTime }</h2>
       </div>
       <div className="middle">
         <p className="current-temp">{ data.curTemp }<span className="deg">&deg;</span></p>

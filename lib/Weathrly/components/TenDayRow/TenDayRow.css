@@ -1,9 +1,14 @@
 .TenDayRow {
   display: flex;
   align-items: center;
-  padding: 12px 0;
+  padding: 12px 8px;
   color: #979797;
   font-size: 20px;
+}
+.TenDayRow:hover {
+  background-color: #EAEAEA;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .day {

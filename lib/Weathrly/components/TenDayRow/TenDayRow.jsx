@@ -3,14 +3,10 @@ import weatherIcons from '../../../utils/weather-icons';
 import './TenDayRow.css';
 
 function TenDayRow({ dayData, data }) {
-  let tempColor = {
-    color: '#D62C2C',
-  };
+  let accentColor = { color: '#D62C2C' };
 
   if (data.currentHour >= data.sunSetTime || data.currentHour <= data.sunRiseTime) {
-    tempColor = {
-      color: '#7438B8',
-    };
+    accentColor = { color: '#7438B8' };
   }
 
   const icon = `./lib/assets/weather-icons/grey/${weatherIcons[dayData.icon]}.svg`;
@@ -21,7 +17,7 @@ function TenDayRow({ dayData, data }) {
       <p className="day">{dayData.dayName}</p>
       <p className="condition">{dayData.condition}</p>
       <img src={icon} alt="" className="hourly-icon"/>
-      <p style={tempColor} className="hi-low-temp">{highLow}</p>
+      <p style={accentColor} className="hi-low-temp">{highLow}</p>
     </article>
   );
 }

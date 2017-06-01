@@ -24,4 +24,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.scss', '.css'],
   },
+  devServer: {
+    stats: 'errors-only',
+  },
 };
