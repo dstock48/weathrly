@@ -14,7 +14,6 @@ class Weathrly extends Component {
       tabName: 'Hourly',
       city: 'autoip',
       // city: 'paris france',
-      inputValue: '',
     };
   }
 
@@ -41,35 +40,20 @@ class Weathrly extends Component {
     this.setState({ tabName });
   }
 
-  getLocationInput(e) {
-    if (e.key === 'Enter') {
-      this.setLocation();
-    }
+  setLocation(inputValue) {
     this.setState({
-      inputValue: e.target.value,
+      city: inputValue,
     });
-  }
-
-  setLocation() {
-    const value = this.state.inputValue;
-    this.setState({
-      city: value,
-    });
-    this.updateWeatherData(value);
+    this.updateWeatherData(inputValue);
   }
 
   render() {
     const { cityData, tabName } = this.state;
 
-    const handleLocation = {
-      input: this.getLocationInput.bind(this),
-      change: this.setLocation.bind(this),
-    };
-
     return (
       <section className="Weathrly">
         <AsideForecast data={cityData} />
-        <ForecastDetail data={cityData} tabName={tabName} handler={this.changeTab.bind(this)} locationHandler={handleLocation} input={this.state.inputValue}/>
+        <ForecastDetail data={cityData} tabName={tabName} handler={this.changeTab.bind(this)} locationHandler={this.setLocation.bind(this)} />
       </section>
     );
   }
