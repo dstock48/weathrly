@@ -2,6 +2,7 @@ import React from 'react';  // eslint-disable-line
 import HourlyRow from '../HourlyRow/HourlyRow';  // eslint-disable-line
 import TenDayRow from '../TenDayRow/TenDayRow';  // eslint-disable-line
 import './DetailList.css';
+import colorCondition from '../../../utils/colorCondition';
 
 const DetailList = ({ data, tabName, handler }) => {
   if (!data.sevenHourData) {
@@ -10,11 +11,13 @@ const DetailList = ({ data, tabName, handler }) => {
     );
   }
 
+  const accentColor = colorCondition[data.condition].accentColor;
+
   const sevenHourData = data.sevenHourData.map((hour, i) => <HourlyRow key={Date.now() * i} hourData={hour} data={data} />);
 
   const tenDayData = data.tenDayData.map((hour, i) => <TenDayRow key={Date.now() * i} dayData={hour} data={data} />);
 
-  let borderColor = { borderColor: '#D62C2C' };
+  let borderColor = { borderColor: accentColor };
 
   if (data.currentHour >= data.sunSetTime || data.currentHour <= data.sunRiseTime) {
     borderColor = { borderColor: '#7438B8' };
