@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   width: 100%;
@@ -11,4 +15,81 @@ body {
 
 h1, h2, h3, p {
   margin: 0;
+}
+
+#app {
+
+}
+
+@media (max-width: 1300px) {
+  .city {
+    font-size: 30px;
+  }
+
+  .weather-summary {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .current-time {
+    font-size: 14px;
+  }
+  .weather-summary {
+    width: 100%;
+  }
+
+  .TenDayRow {
+    font-size: 14px;
+  }
+  .hi-low-temp {
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .Weathrly {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .DetailList {
+    position: static;
+    margin-top: 60px;
+  }
+
+  .AsideForecast {
+    width: 100vw;
+    max-width: 100%;
+  }
+
+  .ForecastDetail {
+    flex: auto;
+  }
+
+  .city {
+    font-size: 30px;
+  }
+
+  .weather-summary {
+    font-size: 16px;
+  }
+
+  .TenDayRow {
+    font-size: 20px;
+  }
+  .hi-low-temp {
+    font-size: 20px;
+  }
+
+}
+
+@media (max-width: 550px) {
+  .TenDayRow {
+    font-size: 12px;
+  }
+  .hi-low-temp {
+    font-size: 12px;
+  }
 }

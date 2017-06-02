@@ -1,12 +1,22 @@
 .DetailList {
-  margin: 60px auto 0;
-  overflow: scroll;
-}
+  position: absolute;
+  overflow: hidden;
+  top: 60px;
+  left: 3%;
+  right: 3%;
+  bottom: 0;
+  }
 
 .list-tabs {
   padding-bottom: 5px;
   border-bottom: 4px solid #E0E0E0;
-  margin-bottom: 10px;
+}
+
+.list {
+  height: 100%;
+  overflow: scroll;
+  padding-top: 10px;
+  padding-bottom: 50px;
 }
 
 .tab {
