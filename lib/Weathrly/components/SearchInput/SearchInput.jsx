@@ -24,9 +24,25 @@ class SearchInput extends Component {
   }
 
   render() {
+    if (this.props.errorClass) {
+      return (
+        <section className='ErrorStyle'>
+          <input type="text"
+            onKeyUp={this.enterKeyHandler.bind(this)}
+            className="search-input"
+            onChange={e => this.setState({ inputValue: e.target.value })}
+            placeholder="City / State / Zip"/>
+          <button className="search-btn"
+            onClick={this.submitHandler.bind(this)}>
+            <img className="search-icon" src="lib/assets/magnifier.svg" alt=""/>
+          </button>
+        </section>
+      );
+    }
+
     if (!this.props.data.condition) {
       return (
-        <div className="SearchInput">
+        <div className='SearchInput'>
           <input type="text"
             className="search-input"
             placeholder="City / State / Zip"/>
@@ -48,7 +64,7 @@ class SearchInput extends Component {
     }
 
     return (
-      <section className="SearchInput">
+      <section className='SearchInput'>
         <input type="text"
           onKeyUp={this.enterKeyHandler.bind(this)}
           style={borderAccentColor}
