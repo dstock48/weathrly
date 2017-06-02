@@ -15,14 +15,13 @@
   margin-right: auto;
 }
 
-.condition,
 .hourly-icon,
 .hi-low-temp {
   margin-left: 40px;
 }
 
 .condition {
-
+text-align: right;
 }
 
 .hourly-icon {
