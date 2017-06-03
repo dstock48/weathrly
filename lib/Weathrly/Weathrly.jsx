@@ -2,6 +2,7 @@ import React, { Component } from 'react';  // eslint-disable-line
 import AsideForecast from './components/AsideForecast/AsideForecast';  // eslint-disable-line
 import ForecastDetail from './components/ForecastDetail/ForecastDetail';  // eslint-disable-line
 import ErrorView from './components/ErrorView/ErrorView';  // eslint-disable-line
+import WelcomeView from './components/WelcomeView/WelcomeView';  // eslint-disable-line
 import dataDenver from './data.js';  // eslint-disable-line
 import './Weathrly.css';
 import City from '../model/City';
@@ -11,6 +12,7 @@ class Weathrly extends Component {
   constructor() {
     super();
     this.state = {
+      welcomeMsg: false,
       isNotFound: false,
       cityData: {},
       tabName: 'Hourly',
@@ -25,18 +27,18 @@ class Weathrly extends Component {
   updateWeatherData(city) {
     const url = `http://api.wunderground.com/api/${key}/astronomy/conditions/hourly/forecast/forecast10day/hourly10day/geolookup/q/${city}.json`;
 
-    fetch(url)
-    .then(res => res.json())
-    .then((data) => {
-      const cityData = new City(data);
-      this.setState({ cityData, isNotFound: false });
-    })
-    .catch(() => this.setState({
-      isNotFound: true,
-    }));
+    // fetch(url)
+    // .then(res => res.json())
+    // .then((data) => {
+    //   const cityData = new City(data);
+    //   this.setState({ cityData, isNotFound: false });
+    // })
+    // .catch(() => this.setState({
+    //   isNotFound: true,
+    // }));
 
-    // const cityData = new City(dataDenver);
-    // this.setState({ cityData });
+    const cityData = new City(dataDenver);
+    this.setState({ cityData });
   }
 
   changeTab(e) {
@@ -52,9 +54,15 @@ class Weathrly extends Component {
 
   render() {
     const { cityData, tabName, isNotFound } = this.state;
+
+    if (localStorage.length === 0) {
+      return <WelcomeView data={cityData} handler={this.changeTab.bind(this)} locationHandler={this.setLocation.bind(this)} />;
+    }
+
     if (isNotFound) {
       return <ErrorView data={cityData} handler={this.changeTab.bind(this)} locationHandler={this.setLocation.bind(this)} />;
     }
+
     return (
       <section className="Weathrly">
         <AsideForecast data={cityData} />
