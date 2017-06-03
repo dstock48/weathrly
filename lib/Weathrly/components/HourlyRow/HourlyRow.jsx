@@ -5,7 +5,6 @@ import colorCondition from '../../../utils/colorCondition';
 
 function HourlyRow({ hourData, data }) {
   const accentColor = colorCondition[data.condition].accentColor;
-
   let icon = `./lib/assets/weather-icons/grey/${weatherIcons[hourData.icon]}.svg`;
   let tempColor = { color: accentColor };
 
