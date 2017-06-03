@@ -14,7 +14,7 @@ class Weathrly extends Component {
       isNotFound: false,
       cityData: {},
       tabName: 'Hourly',
-      city: 'autoip',
+      city: localStorage.getItem('location') || 'autoip',
     };
   }
 
@@ -25,18 +25,18 @@ class Weathrly extends Component {
   updateWeatherData(city) {
     const url = `http://api.wunderground.com/api/${key}/astronomy/conditions/hourly/forecast/forecast10day/hourly10day/geolookup/q/${city}.json`;
 
-    // fetch(url)
-    // .then(res => res.json())
-    // .then((data) => {
-    //   const cityData = new City(data);
-    //   this.setState({ cityData, isNotFound: false });
-    // })
-    // .catch(() => this.setState({
-    //   isNotFound: true,
-    // }));
+    fetch(url)
+    .then(res => res.json())
+    .then((data) => {
+      const cityData = new City(data);
+      this.setState({ cityData, isNotFound: false });
+    })
+    .catch(() => this.setState({
+      isNotFound: true,
+    }));
 
-    const cityData = new City(dataDenver);
-    this.setState({ cityData });
+    // const cityData = new City(dataDenver);
+    // this.setState({ cityData });
   }
 
   changeTab(e) {
@@ -46,6 +46,7 @@ class Weathrly extends Component {
 
   setLocation(city) {
     this.setState({ city });
+    localStorage.setItem('location', city);
     this.updateWeatherData(city);
   }
 

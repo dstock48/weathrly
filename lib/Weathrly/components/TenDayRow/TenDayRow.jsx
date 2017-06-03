@@ -6,13 +6,6 @@ import colorCondition from '../../../utils/colorCondition';
 function TenDayRow({ dayData, data }) {
   const accentColor = colorCondition[data.condition].accentColor;
   let tempColor = { color: accentColor };
-  let day = 5;
-
-  console.log(day);
-  // console.log(dayData.hourlyData[90].FCTTIME.mday)
-
-
-
   if (data.currentHour >= data.sunSetTime || data.currentHour <= data.sunRiseTime) {
     tempColor = { color: '#A332D6' };
   }
