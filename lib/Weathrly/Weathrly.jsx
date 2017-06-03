@@ -39,14 +39,20 @@ class Weathrly extends Component {
         console.error('Location not found');
         localStorage.location = '';
       });
+      // const cityData = new City(dataDenver);
+      // this.setState({ cityData });
     }
-    // const cityData = new City(dataDenver);
-    // this.setState({ cityData });
   }
 
   changeTab(e) {
     const tabName = e.target.textContent;
     this.setState({ tabName });
+  }
+
+  showTwentyFourData(e) {
+    const tabName = e.target;
+    console.log(tabName);
+    // this.setState({ tabName });
   }
 
   setLocation(city) {
@@ -69,7 +75,7 @@ class Weathrly extends Component {
     return (
       <section className="Weathrly">
         <AsideForecast data={cityData} />
-        <ForecastDetail data={cityData} tabName={tabName} handler={this.changeTab.bind(this)} locationHandler={this.setLocation.bind(this)} />
+        <ForecastDetail data={cityData} tabName={tabName} handler={this.changeTab.bind(this)} locationHandler={this.setLocation.bind(this)} displayHandler={this.showTwentyFourData.bind(this)}/>
       </section>
     );
   }
