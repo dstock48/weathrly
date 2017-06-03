@@ -6,6 +6,12 @@ import colorCondition from '../../../utils/colorCondition';
 function TenDayRow({ dayData, data }) {
   const accentColor = colorCondition[data.condition].accentColor;
   let tempColor = { color: accentColor };
+  let day = 5;
+
+  console.log(day);
+  // console.log(dayData.hourlyData[90].FCTTIME.mday)
+
+
 
   if (data.currentHour >= data.sunSetTime || data.currentHour <= data.sunRiseTime) {
     tempColor = { color: '#A332D6' };
@@ -13,10 +19,11 @@ function TenDayRow({ dayData, data }) {
 
   const icon = `./lib/assets/weather-icons/grey/${weatherIcons[dayData.icon]}.svg`;
   const highLow = `${dayData.highTemp}° / ${dayData.lowTemp}°`;
+  const dayMonth = `${dayData.month} / ${dayData.day}`;
 
   return (
     <article className="TenDayRow">
-      <p className="day">{dayData.dayName}</p>
+      <p className="day">{dayMonth} {dayData.dayName}</p>
       <p className="condition">{dayData.condition}</p>
       <img src={icon} alt="" className="hourly-icon"/>
       <p style={tempColor} className="hi-low-temp">{highLow}</p>

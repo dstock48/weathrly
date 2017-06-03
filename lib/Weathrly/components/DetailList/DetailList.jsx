@@ -12,9 +12,7 @@ const DetailList = ({ data, tabName, handler }) => {
   }
 
   const accentColor = colorCondition[data.condition].accentColor;
-
   const sevenHourData = data.sevenHourData.map((hour, i) => <HourlyRow key={Date.now() * i} hourData={hour} data={data} />);
-
   const tenDayData = data.tenDayData.map((hour, i) => <TenDayRow key={Date.now() * i} dayData={hour} data={data} />);
 
   let borderColor = { borderColor: accentColor };

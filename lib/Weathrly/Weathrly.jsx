@@ -36,7 +36,7 @@ class Weathrly extends Component {
     // }));
 
     const cityData = new City(dataDenver);
-    this.setState({ cityData })
+    this.setState({ cityData });
   }
 
   changeTab(e) {
@@ -44,11 +44,9 @@ class Weathrly extends Component {
     this.setState({ tabName });
   }
 
-  setLocation(inputValue) {
-    this.setState({
-      city: inputValue,
-    });
-    this.updateWeatherData(inputValue);
+  setLocation(city) {
+    this.setState({ city });
+    this.updateWeatherData(city);
   }
 
   render() {
