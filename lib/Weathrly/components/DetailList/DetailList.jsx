@@ -4,7 +4,7 @@ import TenDayRow from '../TenDayRow/TenDayRow';  // eslint-disable-line
 import './DetailList.css';
 import colorCondition from '../../../utils/colorCondition';
 
-const DetailList = ({ data, tabName, handler }) => {
+const DetailList = ({ data, tabName, handler, getDay, selectedDay, selectedMonth }) => {
   if (!data.sevenHourData) {
     return (
       <section className='DetailList'></section>
@@ -12,9 +12,12 @@ const DetailList = ({ data, tabName, handler }) => {
   }
 
   const accentColor = colorCondition[data.condition].accentColor;
+
   const sevenHourData = data.sevenHourData.map((hour, i) => <HourlyRow key={Date.now() * i} hourData={hour} data={data} />);
-  const tenDayData = data.tenDayData.map((hour, i) => <TenDayRow key={Date.now() * i} dayData={hour} data={data} />);
-  const twentyFourData = data.sevenHourData.map((hour, i) => <HourlyRow key={Date.now() * i} hourData={hour} data={data} />)
+  const tenDayData = data.tenDayData.map((hour, i) => <TenDayRow getDay={getDay} key={Date.now() * i} dayData={hour} data={data} />);
+  const twentyFourData = data.twentyFourData
+    .filter(e => e.day === selectedDay)
+    .map((hour, i) => <HourlyRow key={Date.now() * i} hourData={hour} data={data} />);
 
   let borderColor = { borderColor: accentColor };
 
@@ -22,17 +25,39 @@ const DetailList = ({ data, tabName, handler }) => {
     borderColor = { borderColor: '#7438B8' };
   }
 
-  let hourlyTab = <a style={borderColor} onClick={handler} className="tab tab-active">Hourly</a>;
-  let tenDayTab = <a onClick={handler} className="tab">10 Day</a>;
-  let twentyFourTab = <a onClick={handler} className="tab">24 Hourly</a>;
+  let hourlyTab = <a key='tab-1' style={borderColor} onClick={handler} className="tab tab-active">Hourly</a>;
+  let tenDayTab = <a key='tab-2' onClick={handler} className="tab">10 Day</a>;
+  let twentyFourTab = <a key='tab-3' className="tab">{selectedMonth} {selectedDay}</a>;
 
   if (tabName === '10 Day') {
-    hourlyTab = <a onClick={handler} className="tab">Hourly</a>;
-    tenDayTab = <a style={borderColor} onClick={handler} className="tab tab-active">10 Day</a>;
+    hourlyTab = <a key='tab-1' onClick={handler} className="tab">Hourly</a>;
+    tenDayTab = <a key='tab-2' style={borderColor} onClick={handler} className="tab tab-active">10 Day</a>;
   }
 
-  let tabs = [hourlyTab, tenDayTab, twentyFourTab]
+  if (tabName === '24 Hourly') {
+    hourlyTab = <a key='tab-1' onClick={handler} className="tab">Hourly</a>;
+    tenDayTab = <a key='tab-2' onClick={handler} className="tab">10 Day</a>;
+    twentyFourTab = <a key='tab-3' style={borderColor} className="tab tab-active">{selectedMonth} {selectedDay}</a>;
+  }
 
+  let tabs;
+  let dataView;
+
+  switch (tabName) {
+    case 'Hourly':
+      dataView = sevenHourData;
+      tabs = [hourlyTab, tenDayTab];
+      break;
+    case '10 Day':
+      dataView = tenDayData;
+      tabs = [hourlyTab, tenDayTab];
+      break;
+    case '24 Hourly':
+      dataView = twentyFourData;
+      tabs = [hourlyTab, tenDayTab, twentyFourTab];
+      break;
+    default:
+  }
 
 
   return (
@@ -41,7 +66,7 @@ const DetailList = ({ data, tabName, handler }) => {
         {tabs}
       </nav>
       <section className="list">
-        { tabName === 'Hourly' ? sevenHourData : tenDayData }
+        { dataView }
       </section>
     </section>
   );

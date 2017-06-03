@@ -17,6 +17,8 @@ class Weathrly extends Component {
       cityData: {},
       tabName: 'Hourly',
       city: localStorage.getItem('location') || 'no location',
+      selectedDay: '',
+      selectedMonth: '',
     };
   }
 
@@ -49,20 +51,19 @@ class Weathrly extends Component {
     this.setState({ tabName });
   }
 
-  showTwentyFourData(e) {
-    const tabName = e.target;
-    console.log(tabName);
-    // this.setState({ tabName });
-  }
-
   setLocation(city) {
     this.setState({ city });
     localStorage.setItem('location', city);
     this.updateWeatherData(city);
   }
 
+  getDayHandler(e) {
+    console.log(e.day);
+    this.setState({ selectedDay: e.day, selectedMonth: e.month, tabName: '24 Hourly' });
+  }
+
   render() {
-    const { cityData, tabName, isNotFound } = this.state;
+    const { cityData, tabName, isNotFound, selectedDay, selectedMonth } = this.state;
 
     if (!localStorage.location) {
       return <WelcomeView data={cityData} handler={this.changeTab.bind(this)} locationHandler={this.setLocation.bind(this)} />;
@@ -75,7 +76,13 @@ class Weathrly extends Component {
     return (
       <section className="Weathrly">
         <AsideForecast data={cityData} />
-        <ForecastDetail data={cityData} tabName={tabName} handler={this.changeTab.bind(this)} locationHandler={this.setLocation.bind(this)} displayHandler={this.showTwentyFourData.bind(this)}/>
+        <ForecastDetail data={cityData}
+          tabName={tabName}
+          handler={this.changeTab.bind(this)}
+          locationHandler={this.setLocation.bind(this)}
+          getDay={this.getDayHandler.bind(this)}
+          selectedDay={selectedDay}
+          selectedMonth={selectedMonth}/>
       </section>
     );
   }
