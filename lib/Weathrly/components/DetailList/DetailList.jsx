@@ -14,6 +14,7 @@ const DetailList = ({ data, tabName, handler }) => {
   const accentColor = colorCondition[data.condition].accentColor;
   const sevenHourData = data.sevenHourData.map((hour, i) => <HourlyRow key={Date.now() * i} hourData={hour} data={data} />);
   const tenDayData = data.tenDayData.map((hour, i) => <TenDayRow key={Date.now() * i} dayData={hour} data={data} />);
+  const twentyFourData = data.sevenHourData.map((hour, i) => <HourlyRow key={Date.now() * i} hourData={hour} data={data} />)
 
   let borderColor = { borderColor: accentColor };
 
@@ -23,17 +24,21 @@ const DetailList = ({ data, tabName, handler }) => {
 
   let hourlyTab = <a style={borderColor} onClick={handler} className="tab tab-active">Hourly</a>;
   let tenDayTab = <a onClick={handler} className="tab">10 Day</a>;
+  let twentyFourTab = <a onClick={handler} className="tab">24 Hourly</a>;
 
   if (tabName === '10 Day') {
     hourlyTab = <a onClick={handler} className="tab">Hourly</a>;
     tenDayTab = <a style={borderColor} onClick={handler} className="tab tab-active">10 Day</a>;
   }
 
+  let tabs = [hourlyTab, tenDayTab, twentyFourTab]
+
+
+
   return (
     <section className="DetailList">
       <nav className="list-tabs">
-        {hourlyTab}
-        {tenDayTab}
+        {tabs}
       </nav>
       <section className="list">
         { tabName === 'Hourly' ? sevenHourData : tenDayData }
