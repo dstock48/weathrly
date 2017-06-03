@@ -16,7 +16,7 @@ class Weathrly extends Component {
       isNotFound: false,
       cityData: {},
       tabName: 'Hourly',
-      city: localStorage.getItem('location') || 'autoip',
+      city: localStorage.getItem('location') || 'no location',
     };
   }
 
@@ -27,18 +27,21 @@ class Weathrly extends Component {
   updateWeatherData(city) {
     const url = `http://api.wunderground.com/api/${key}/astronomy/conditions/hourly/forecast/forecast10day/hourly10day/geolookup/q/${city}.json`;
 
-    // fetch(url)
-    // .then(res => res.json())
-    // .then((data) => {
-    //   const cityData = new City(data);
-    //   this.setState({ cityData, isNotFound: false });
-    // })
-    // .catch(() => this.setState({
-    //   isNotFound: true,
-    // }));
-
-    const cityData = new City(dataDenver);
-    this.setState({ cityData });
+    if (city !== 'no location') {
+      fetch(url)
+      .then(res => res.json())
+      .then((data) => {
+        const cityData = new City(data);
+        this.setState({ cityData, isNotFound: false });
+      })
+      .catch(() => {
+        this.setState({ isNotFound: true });
+        console.error('Location not found');
+        localStorage.location = '';
+      });
+    }
+    // const cityData = new City(dataDenver);
+    // this.setState({ cityData });
   }
 
   changeTab(e) {
@@ -55,7 +58,7 @@ class Weathrly extends Component {
   render() {
     const { cityData, tabName, isNotFound } = this.state;
 
-    if (localStorage.length === 0) {
+    if (!localStorage.location) {
       return <WelcomeView data={cityData} handler={this.changeTab.bind(this)} locationHandler={this.setLocation.bind(this)} />;
     }
 
