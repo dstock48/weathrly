@@ -58,7 +58,6 @@ class Weathrly extends Component {
   }
 
   getDayHandler(e) {
-    console.log(e.day);
     this.setState({ selectedDay: e.day, selectedMonth: e.month, tabName: '24 Hourly' });
   }
 
