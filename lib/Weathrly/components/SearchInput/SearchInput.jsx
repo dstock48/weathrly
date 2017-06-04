@@ -29,12 +29,12 @@ class SearchInput extends Component {
         <section className='ErrorStyle'>
           <input type="text"
             onKeyUp={this.enterKeyHandler.bind(this)}
-            style={{borderColor: this.props.accentColor}}
+            style={{ borderColor: this.props.accentColor }}
             className="search-input"
             onChange={e => this.setState({ inputValue: e.target.value })}
             placeholder="City / State / Zip"/>
           <button className="search-btn"
-            style={{backgroundColor: this.props.accentColor}}
+            style={{ backgroundColor: this.props.accentColor }}
             onClick={this.submitHandler.bind(this)}>
             <img className="search-icon" src="lib/assets/magnifier.svg" alt=""/>
           </button>
