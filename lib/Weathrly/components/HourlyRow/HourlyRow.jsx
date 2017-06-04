@@ -22,8 +22,10 @@ function HourlyRow({ hourData, data }) {
     <article className="HourlyRow">
       <p className="time">{hourData.time}</p>
       <p className="condition">{hourData.condition}</p>
-      <img src={icon} alt="" className="hourly-icon"/>
-      <p style={tempColor} className="hourly-temp">{`${hourData.temp}°`}</p>
+      <div className="row-sec">
+        <img src={icon} alt="" className="hourly-icon"/>
+        <p style={tempColor} className="hourly-temp">{`${hourData.temp}°`}</p>
+      </div>
     </article>
   );
 }

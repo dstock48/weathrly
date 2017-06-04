@@ -23,33 +23,33 @@ h1, h2, h3, p {
 }
 
 @media (max-width: 1300px) {
-  .city {
+  .AsideForecast .city {
     font-size: 30px;
   }
 
-  .weather-summary {
+  .AsideForecast .weather-summary {
     font-size: 16px;
   }
-}
-
-@media (max-width: 1100px) {
   .current-time {
     font-size: 14px;
   }
+}
+
+@media (max-width: 1200px) {
   .weather-summary {
     width: 100%;
   }
 
   .TenDayRow {
-    font-size: 14px;
+    /*font-size: 14px;*/
   }
   .hi-low-temp {
-    font-size: 14px;
+    /*font-size: 14px;*/
   }
 }
 
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .Weathrly {
     flex-direction: column;
     height: auto;
@@ -85,16 +85,47 @@ h1, h2, h3, p {
   .TenDayRow {
     font-size: 20px;
   }
+
   .hi-low-temp {
     font-size: 20px;
+  }
+
+  .row-sec {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin-left: 30px;
+  }
+
+  .hourly-icon {
+    width: 45px;
+    margin: 0;
+  }
+
+  .hi-low-temp {
+    font-size: 24px;
+    min-width: 50px;
   }
 
 }
 
 @media (max-width: 550px) {
+
+  .ForecastDetail {
+    padding: 20px 10px;
+  }
+
   .TenDayRow {
     font-size: 12px;
   }
+  .HourlyRow {
+    font-size: 16px;
+  }
+
+  .condition {
+  max-width: 105px;
+}
+
   .hi-low-temp {
     font-size: 12px;
   }
@@ -105,5 +136,18 @@ h1, h2, h3, p {
 
   .search-input {
     width: 100%;
+  }
+
+  .hourly-icon {
+    width: auto;
+    margin: 0;
+  }
+
+  .month-date {
+    min-width: 50px;
+  }
+
+  .row-sec {
+    margin-left: 25px;
   }
 }

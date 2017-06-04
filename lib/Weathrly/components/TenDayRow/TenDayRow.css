@@ -11,6 +11,10 @@
   cursor: pointer;
 }
 
+.month-date {
+  min-width: 88px;
+}
+
 .day {
   margin-right: auto;
 }
@@ -21,11 +25,11 @@ text-align: right;
 
 .hourly-icon {
   width: 45px;
-  margin: 0 10% 0 5%;
+  margin: 0 25px 0 40px;
 }
 
 .hi-low-temp {
   font-size: 24px;
-  width: 115px;
+  min-width: 115px;
   text-align: right;
 }

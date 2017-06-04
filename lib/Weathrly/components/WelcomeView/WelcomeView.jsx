@@ -11,6 +11,7 @@ function WelcomeView({ data, locationHandler }) {
     <img id="cloud1" className="cloudsL" src="lib/assets/clouds1.png"/>
     <img id="cloud2" className="cloudsL" src="lib/assets/clouds2.png"/>
     <img id="cloud3" className="cloudsL" src="lib/assets/clouds3.png"/>
+    <h1 className="logo">WEATHRLY</h1>
     <span className="emoji">😄</span>
     <h1 className="welcome-msg">Welcome!</h1>
     <p className="welcome-sub-msg">Enter your location</p>

@@ -15,9 +15,13 @@
   margin-left: 0px;
 }
 
+.row-sec {
+  display: flex;
+}
+
 .hourly-icon {
   height: 30px;
-  margin: 0 10% 0 5%;
+  margin: 0 25px 0 40px;
 }
 
 .hourly-temp {

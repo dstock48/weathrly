@@ -16,10 +16,13 @@ function TenDayRow({ dayData, data, getDay }) {
 
   return (
     <article onClick={() => getDay(dayData)} className="TenDayRow">
-      <p className="day">{dayMonth} - {dayData.dayName}</p>
+      <p className="month-date">{dayMonth}</p>
+      <p className="day">{dayData.dayName}</p>
       <p className="condition">{dayData.condition}</p>
-      <img src={icon} alt="" className="hourly-icon"/>
-      <p style={tempColor} className="hi-low-temp">{highLow}</p>
+      <div className="row-sec">
+        <img src={icon} alt="" className="hourly-icon"/>
+        <p style={tempColor} className="hi-low-temp">{highLow}</p>
+      </div>
     </article>
   );
 }
