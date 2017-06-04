@@ -64,20 +64,23 @@
 }
 
 @keyframes move {
-    0%   {transform: translateX(0px);}
-    100% {transform: translateX(500px);}
+
+    0%   {opacity: 0; transform: translateX(0px);}
+    5%   {opacity: 1;}
+    95% {opacity: 1;}
+    100% {opacity: 0; transform: translateX(200px);}
 }
 
 .clouds {
   position: absolute;
   left: 50%;
-  animation: move 60s linear infinite;
+  animation: move 10s linear infinite;
   z-index: 1;
 }
 .cloudsL {
   position: absolute;
   right: 50%;
-  animation: move 60s linear infinite;
+  animation: move 10s linear infinite;
   z-index: 1;
 }
 

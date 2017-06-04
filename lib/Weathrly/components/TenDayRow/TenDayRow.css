@@ -15,19 +15,17 @@
   margin-right: auto;
 }
 
-.hourly-icon,
-.hi-low-temp {
-  margin-left: 40px;
-}
-
 .condition {
 text-align: right;
 }
 
 .hourly-icon {
   width: 45px;
+  margin: 0 10% 0 5%;
 }
 
 .hi-low-temp {
   font-size: 24px;
+  width: 115px;
+  text-align: right;
 }

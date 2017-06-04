@@ -1,10 +1,7 @@
 .DetailList {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  top: 60px;
-  left: 3%;
-  right: 3%;
-  bottom: 0;
   }
 
 .list-tabs {
@@ -13,10 +10,7 @@
 }
 
 .list {
-  height: 100%;
   overflow: scroll;
-  padding-top: 10px;
-  padding-bottom: 50px;
 }
 
 .tab {

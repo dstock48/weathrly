@@ -11,6 +11,7 @@ body {
   width: 100%;
   height: 100%;
   font-family: 'Avenir Next', sans-serif;
+  background-color: #EFEFEF;
 }
 
 h1, h2, h3, p {
@@ -56,7 +57,6 @@ h1, h2, h3, p {
 
   .DetailList {
     position: static;
-    margin-top: 60px;
   }
 
   .AsideForecast {
@@ -64,8 +64,14 @@ h1, h2, h3, p {
     max-width: 100%;
   }
 
-  .ForecastDetail {
-    flex: auto;
+  .SearchInput {
+    align-self: center;
+    height: 42px;
+    margin-bottom: 20px;
+  }
+
+  .search-input {
+    width: 350px;
   }
 
   .city {
@@ -91,5 +97,13 @@ h1, h2, h3, p {
   }
   .hi-low-temp {
     font-size: 12px;
+  }
+
+  .SearchInput {
+    width: 100%
+  }
+
+  .search-input {
+    width: 100%;
   }
 }
