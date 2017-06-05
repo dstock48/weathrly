@@ -4,7 +4,6 @@ import { shallow, mount } from 'enzyme';
 import DetailList from '../lib/Weathrly/components/DetailList/DetailList';
 
 describe('DetailList Component', () => {
-
   it('should render to the page', () => {
     const DetailListComp = shallow(
       <DetailList
@@ -13,11 +12,11 @@ describe('DetailList Component', () => {
         getDay={() => true}
         data={{}}
         tabName={'Hourly'}
-        handler={() => true} />
-      );
+        handler={() => true}
+      />
+    );
     console.log(DetailListComp.debug());
 
-    expect(true)
+    expect(true);
   });
-
 });
