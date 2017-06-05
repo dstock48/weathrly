@@ -15,7 +15,7 @@ function ErrorView({ data, locationHandler }) {
         accentColor={'#3a405d'}
       />
     </section>
-    );
+  );
 }
 
 export default ErrorView;

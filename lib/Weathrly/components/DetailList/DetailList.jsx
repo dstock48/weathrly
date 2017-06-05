@@ -1,23 +1,37 @@
 import React from 'react';
 import HourlyRow from '../HourlyRow/HourlyRow';
 import TenDayRow from '../TenDayRow/TenDayRow';
-import './DetailList.css';
 import colorCondition from '../../../utils/colorCondition';
+import getRandomKey from '../../../utils/helperFunctions';
+import './DetailList.css';
 
 const DetailList = ({ data, tabName, handler, getDay, selectedDay, selectedMonth }) => {
   if (!data.sevenHourData) {
-    return (
-      <section className="DetailList"></section>
-    );
+    return <section className="DetailList" />;
   }
 
   const accentColor = colorCondition[data.condition].accentColor;
-
-  const sevenHourData = data.sevenHourData.map((hour, i) => <HourlyRow key={Date.now() * i} hourData={hour} data={data} />);
-  const tenDayData = data.tenDayData.map((hour, i) => <TenDayRow getDay={getDay} key={Date.now() * i} dayData={hour} data={data} />);
+  const sevenHourData = data.sevenHourData.map(hour =>
+    <HourlyRow
+      key={getRandomKey()}
+      hourData={hour}
+      data={data}
+    />);
+  const tenDayData = data.tenDayData.map(hour =>
+    <TenDayRow
+      key={getRandomKey()}
+      getDay={getDay}
+      dayData={hour}
+      data={data}
+    />);
   const twentyFourData = data.twentyFourData
     .filter(e => e.day === selectedDay)
-    .map((hour, i) => <HourlyRow key={Date.now() * i} hourData={hour} data={data} />);
+    .map(hour =>
+      <HourlyRow
+        key={getRandomKey()}
+        hourData={hour}
+        data={data}
+      />);
 
   let borderColor = { borderColor: accentColor };
 
@@ -58,7 +72,6 @@ const DetailList = ({ data, tabName, handler, getDay, selectedDay, selectedMonth
       break;
     default:
   }
-
 
   return (
     <section className="DetailList">
