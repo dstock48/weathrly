@@ -43,6 +43,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "@dstock48/complete-me": "^1.0.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-test-renderer": "^15.5.4"
