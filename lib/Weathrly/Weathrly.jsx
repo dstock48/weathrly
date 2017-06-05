@@ -7,6 +7,8 @@ import dataDenver from './data.js';  // eslint-disable-line
 import './Weathrly.css';
 import City from '../model/City';
 import key from '../utils/apiKey';
+import Trie from '../utils/Trie';
+import cities from '../utils/largest1000cities';
 
 class Weathrly extends Component {
   constructor() {
@@ -19,11 +21,13 @@ class Weathrly extends Component {
       city: localStorage.getItem('location') || 'no location',
       selectedDay: '',
       selectedMonth: '',
+      trie: new Trie(),
     };
   }
 
   componentDidMount() {
     this.updateWeatherData(this.state.city);
+    this.state.trie.populate(cities.data);
   }
 
   getDayHandler(e) {
@@ -66,11 +70,12 @@ class Weathrly extends Component {
   }
 
   render() {
-    const { cityData, tabName, isNotFound, selectedDay, selectedMonth } = this.state;
+    const { cityData, tabName, isNotFound, selectedDay, selectedMonth, trie } = this.state;
 
     if (!localStorage.location) {
       return (
         <WelcomeView
+          trie={trie}
           data={cityData}
           handler={this.changeTab.bind(this)}
           locationHandler={this.setLocation.bind(this)}
@@ -81,6 +86,7 @@ class Weathrly extends Component {
     if (isNotFound) {
       return (
         <ErrorView
+          trie={trie}
           data={cityData}
           handler={this.changeTab.bind(this)}
           locationHandler={this.setLocation.bind(this)}
@@ -94,6 +100,7 @@ class Weathrly extends Component {
           data={cityData}
         />
         <ForecastDetail
+          trie={trie}
           data={cityData}
           tabName={tabName}
           handler={this.changeTab.bind(this)}

@@ -1,20 +1,33 @@
 import React, { Component } from 'react';
-import './SearchInput.css';
+import SuggestionList from '../SuggestionList/SuggestionList';
 import colorCondition from '../../../utils/colorCondition';
+import Trie from '../../../utils/Trie';
+import cities from '../../../utils/largest1000cities';
+import './SearchInput.css';
 
 class SearchInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
       inputValue: '',
+      suggestions: [],
     };
   }
 
-  submitHandler() {
-    this.props.handler(this.state.inputValue);
-    this.setState({
-      inputValue: '',
-    });
+  getInputValue(e) {
+    const inputValue = e.target.value;
+    let suggestions;
+    try {
+      suggestions = this.props.trie.suggest(inputValue);
+    } catch (err) {
+      suggestions = [];
+    }
+
+    if (inputValue === '') {
+      suggestions = [];
+    }
+
+    this.setState({ inputValue, suggestions });
   }
 
   enterKeyHandler(e) {
@@ -22,17 +35,33 @@ class SearchInput extends Component {
       this.submitHandler();
     }
   }
+  submitHandler(val) {
+    const value = val || this.state.inputValue;
+    this.props.handler(value);
+    this.setState({
+      inputValue: '',
+    });
+  }
+
+  selectHandler(suggestion) {
+    this.props.trie.select(suggestion);
+    this.setState({ inputValue: suggestion, suggestions: [] });
+    this.submitHandler(suggestion);
+    this.search.value = '';
+  }
 
   render() {
     if (this.props.errorClass) {
       return (
         <section className="ErrorStyle">
           <input
+            ref={(input) => { this.search = input; }}
             type="text"
             onKeyUp={this.enterKeyHandler.bind(this)}
             style={{ borderColor: this.props.accentColor }}
             className="search-input"
-            onChange={e => this.setState({ inputValue: e.target.value })}
+            onChange={this.getInputValue.bind(this)}
+            value={this.val}
             placeholder="City / State / Zip"
           />
           <button
@@ -42,6 +71,10 @@ class SearchInput extends Component {
           >
             <img className="search-icon" src="lib/assets/magnifier.svg" alt="" />
           </button>
+          <SuggestionList
+            suggestions={this.state.suggestions}
+            selectHandler={this.selectHandler.bind(this)}
+          />
         </section>
       );
     }
@@ -74,11 +107,12 @@ class SearchInput extends Component {
     return (
       <section className="SearchInput">
         <input
+          ref={(input) => { this.search = input; }}
           type="text"
           onKeyUp={this.enterKeyHandler.bind(this)}
           style={borderAccentColor}
           className="search-input"
-          onChange={e => this.setState({ inputValue: e.target.value })}
+          onChange={this.getInputValue.bind(this)}
           placeholder="City / State / Zip"
         />
         <button
@@ -88,6 +122,10 @@ class SearchInput extends Component {
         >
           <img className="search-icon" src="lib/assets/magnifier.svg" alt="" />
         </button>
+        <SuggestionList
+          suggestions={this.state.suggestions}
+          selectHandler={this.selectHandler.bind(this)}
+        />
       </section>
     );
   }
