@@ -27,7 +27,11 @@ class Weathrly extends Component {
   }
 
   getDayHandler(e) {
-    this.setState({ selectedDay: e.day, selectedMonth: e.month, tabName: '24 Hourly' });
+    this.setState({
+      selectedDay: e.day,
+      selectedMonth: e.month,
+      tabName: '24 Hourly',
+    });
   }
 
   setLocation(city) {
@@ -65,16 +69,30 @@ class Weathrly extends Component {
     const { cityData, tabName, isNotFound, selectedDay, selectedMonth } = this.state;
 
     if (!localStorage.location) {
-      return <WelcomeView data={cityData} handler={this.changeTab.bind(this)} locationHandler={this.setLocation.bind(this)} />;
+      return (
+        <WelcomeView
+          data={cityData}
+          handler={this.changeTab.bind(this)}
+          locationHandler={this.setLocation.bind(this)}
+        />
+      );
     }
 
     if (isNotFound) {
-      return <ErrorView data={cityData} handler={this.changeTab.bind(this)} locationHandler={this.setLocation.bind(this)} />;
+      return (
+        <ErrorView
+          data={cityData}
+          handler={this.changeTab.bind(this)}
+          locationHandler={this.setLocation.bind(this)}
+        />
+      );
     }
 
     return (
       <section className="Weathrly">
-        <AsideForecast data={cityData} />
+        <AsideForecast
+          data={cityData}
+        />
         <ForecastDetail
           data={cityData}
           tabName={tabName}

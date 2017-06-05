@@ -15,7 +15,11 @@ function WelcomeView({ data, locationHandler }) {
       <span className="emoji">😄</span>
       <h1 className="welcome-msg">Welcome!</h1>
       <p className="welcome-sub-msg">Enter your location</p>
-      <SearchInput errorClass={true} data={data} handler={locationHandler} />
+      <SearchInput
+        errorClass={true}
+        data={data}
+        handler={locationHandler}
+      />
     </section>
   );
 }
