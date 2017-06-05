@@ -1,4 +1,4 @@
-import React, { Component } from 'react'; // eslint-disable-line
+import React, { Component } from 'react';
 import './SearchInput.css';
 import colorCondition from '../../../utils/colorCondition';
 
@@ -26,17 +26,21 @@ class SearchInput extends Component {
   render() {
     if (this.props.errorClass) {
       return (
-        <section className='ErrorStyle'>
-          <input type="text"
+        <section className="ErrorStyle">
+          <input
+            type="text"
             onKeyUp={this.enterKeyHandler.bind(this)}
             style={{ borderColor: this.props.accentColor }}
             className="search-input"
             onChange={e => this.setState({ inputValue: e.target.value })}
-            placeholder="City / State / Zip"/>
-          <button className="search-btn"
+            placeholder="City / State / Zip"
+          />
+          <button
+            className="search-btn"
             style={{ backgroundColor: this.props.accentColor }}
-            onClick={this.submitHandler.bind(this)}>
-            <img className="search-icon" src="lib/assets/magnifier.svg" alt=""/>
+            onClick={this.submitHandler.bind(this)}
+          >
+            <img className="search-icon" src="lib/assets/magnifier.svg" alt="" />
           </button>
         </section>
       );
@@ -44,12 +48,14 @@ class SearchInput extends Component {
 
     if (!this.props.data.condition) {
       return (
-        <div className='SearchInput'>
-          <input type="text"
+        <div className="SearchInput">
+          <input
+            type="text"
             className="search-input"
-            placeholder="City / State / Zip"/>
+            placeholder="City / State / Zip"
+          />
           <button className="search-btn">
-            <img className="search-icon" src="lib/assets/magnifier.svg" alt=""/>
+            <img className="search-icon" src="lib/assets/magnifier.svg" alt="" />
           </button>
         </div>
       );
@@ -66,17 +72,21 @@ class SearchInput extends Component {
     }
 
     return (
-      <section className='SearchInput'>
-        <input type="text"
+      <section className="SearchInput">
+        <input
+          type="text"
           onKeyUp={this.enterKeyHandler.bind(this)}
           style={borderAccentColor}
           className="search-input"
           onChange={e => this.setState({ inputValue: e.target.value })}
-          placeholder="City / State / Zip"/>
-        <button className="search-btn"
+          placeholder="City / State / Zip"
+        />
+        <button
+          className="search-btn"
           style={backgroundAccentColor}
-          onClick={this.submitHandler.bind(this)}>
-          <img className="search-icon" src="lib/assets/magnifier.svg" alt=""/>
+          onClick={this.submitHandler.bind(this)}
+        >
+          <img className="search-icon" src="lib/assets/magnifier.svg" alt="" />
         </button>
       </section>
     );

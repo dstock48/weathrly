@@ -1,10 +1,14 @@
 .logo {
+  position: absolute;
+  top: 10px;
   font-size: 60px;
+  color: rgba(255,255,255,.3);
+  letter-spacing: -11px;
 }
 
 .welcome-msg {
   font-size: 50px;
-  font-weight: 300;
+  font-weight: 500;
   z-index: 2;
 }
 
@@ -17,6 +21,7 @@
 
 .emoji {
   font-size: 100px;
+  margin-bottom: -30px;
 }
 
 .WelcomeView {
@@ -78,13 +83,13 @@
 .clouds {
   position: absolute;
   left: 50%;
-  animation: move 10s linear infinite;
+  animation: move 20s linear infinite;
   z-index: 1;
 }
 .cloudsL {
   position: absolute;
   right: 50%;
-  animation: move 10s linear infinite;
+  animation: move 20s linear infinite;
   z-index: 1;
 }
 

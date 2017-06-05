@@ -121,6 +121,9 @@ h1, h2, h3, p {
   .HourlyRow {
     font-size: 16px;
   }
+  .hourly-temp {
+    font-size: 16px;
+  }
 
   .condition {
   max-width: 105px;

@@ -1,4 +1,4 @@
-import React from 'react'; // eslint-disable-line
+import React from 'react';
 import weatherIcons from '../../../utils/weather-icons';
 import colorCondition from '../../../utils/colorCondition';
 import './AsideForecast.css';
@@ -6,7 +6,7 @@ import './AsideForecast.css';
 function AsideForecast({ data }) {
   if (!data.locationInfo) {
     return (
-      <section className='AsideForecast'></section>
+      <section className="AsideForecast"></section>
     );
   }
 
@@ -29,19 +29,19 @@ function AsideForecast({ data }) {
   }
 
   return (
-    <aside className='AsideForecast' style={backgroundGradient}>
+    <aside className="AsideForecast" style={backgroundGradient}>
       <div className="top">
-        <h1 className="city">{ data.locationInfo.full }</h1>
-        <h2 className="current-time">{ data.lastUpdateTime }</h2>
+        <h1 className="city">{data.locationInfo.full}</h1>
+        <h2 className="current-time">{data.lastUpdateTime}</h2>
       </div>
       <div className="middle">
-        <p className="current-temp">{ data.curTemp }<span className="deg">&deg;</span></p>
-        <img className="weather-icon" src={ icon } alt="weather condition icon"/>
-        <p className="weather-condition">{ data.condition }</p>
+        <p className="current-temp">{data.curTemp}<span className="deg">&deg;</span></p>
+        <img className="weather-icon" src={icon} alt="weather condition icon" />
+        <p className="weather-condition">{data.condition}</p>
         <p className="hi-low">{highLow}</p>
       </div>
       <div className="bottom">
-        <p className="weather-summary">{ data.forecastDisc }</p>
+        <p className="weather-summary">{data.forecastDisc}</p>
       </div>
     </aside>
   );

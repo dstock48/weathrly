@@ -1,4 +1,4 @@
-import React from 'react';  // eslint-disable-line
+import React from 'react';
 import weatherIcons from '../../../utils/weather-icons';
 import './TenDayRow.css';
 import colorCondition from '../../../utils/colorCondition';
@@ -20,7 +20,7 @@ function TenDayRow({ dayData, data, getDay }) {
       <p className="day">{dayData.dayName}</p>
       <p className="condition">{dayData.condition}</p>
       <div className="row-sec">
-        <img src={icon} alt="" className="hourly-icon"/>
+        <img src={icon} alt="" className="hourly-icon" />
         <p style={tempColor} className="hi-low-temp">{highLow}</p>
       </div>
     </article>

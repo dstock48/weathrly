@@ -1,11 +1,13 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb/base",
+  "plugins": ["react"],
+  "extends": "airbnb",
   "env": {
     "browser": true,
     "mocha": true,
     "node": true
   },
+  "ecmaFeatures": {"jsx": true},
   "rules": {
     "quotes": [2, "single"],
     "eol-last": [0],
@@ -13,6 +15,10 @@
     "no-underscore-dangle": [0],
     "max-len": [0],
     "no-console": [0],
+    "no-param-reassign": [0],
+    "react/prop-types": [0],
+    "react/jsx-boolean-value": [0],
+    "react/jsx-no-bind": [0],
     "arrow-body-style": [0]
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react';  // eslint-disable-line
+import React from 'react';
 import weatherIcons from '../../../utils/weather-icons';
 import './HourlyRow.css';
 import colorCondition from '../../../utils/colorCondition';
@@ -23,7 +23,7 @@ function HourlyRow({ hourData, data }) {
       <p className="time">{hourData.time}</p>
       <p className="condition">{hourData.condition}</p>
       <div className="row-sec">
-        <img src={icon} alt="" className="hourly-icon"/>
+        <img src={icon} alt="" className="hourly-icon" />
         <p style={tempColor} className="hourly-temp">{`${hourData.temp}°`}</p>
       </div>
     </article>
