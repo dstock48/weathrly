@@ -39,7 +39,6 @@ class Weathrly extends Component {
   }
 
   setLocation(city) {
-    console.log(city);
     this.state.trie.insert(city);
     this.state.trie.select(city);
     this.setState({ city });
