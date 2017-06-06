@@ -23,20 +23,26 @@ describe('SearchInput Component', () => {
   it('should update inputValue state on input change event', () => {
     const trie = new Trie();
     const SearchInputComp = mount(<SearchInput trie={trie} data={cityData} handler={() => true} />);
+    const input = SearchInputComp.find('.search-input');
+    const inputValue = 'phoenix, az';
+    const changeEvt = { target: { value: inputValue } };
 
-    expect(SearchInputComp.find('.search-btn').find('img').prop('src')).toEqual('lib/assets/magnifier.svg');
+    expect(SearchInputComp.state('inputValue')).toEqual('');
+
+    input.simulate('change', changeEvt);
+    expect(SearchInputComp.state('inputValue')).toEqual('phoenix, az');
+
   });
 
   it('should execute function when search button is clicked', () => {
     const trie = new Trie();
-    const mockFunction = () => true;
-    const SearchInputComp = mount(<SearchInput trie={trie} data={cityData} handler={mockFunction} />);
+    const mockFn = jest.fn();
+    const SearchInputComp = mount(<SearchInput trie={trie} data={cityData} handler={mockFn} />);
     const button = SearchInputComp.find('.search-btn');
-    console.log(mockFunction);
+
     button.simulate('click');
-    // console.log(button);
-    expect(mockFunction).toHaveBeenCalledTimes(1);
+    button.simulate('click');
+
+    expect(mockFn).toHaveBeenCalledTimes(2);
   });
 });
-
-// TODO: Render, state change on input change, fn executes when clicking search button
