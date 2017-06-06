@@ -39,34 +39,30 @@ const DetailList = ({ data, tabName, handler, getDay, selectedDay, selectedMonth
     borderColor = { borderColor: '#7438B8' };
   }
 
-  let hourlyTab = <a key="tab-1" style={borderColor} onClick={handler} className="tab tab-active">Hourly</a>;
-  let tenDayTab = <a key="tab-2" onClick={handler} className="tab">10 Day</a>;
-  let twentyFourTab = <a key="tab-3" className="tab">{selectedMonth} {selectedDay}</a>;
-
-  if (tabName === '10 Day') {
-    hourlyTab = <a key="tab-1" onClick={handler} className="tab">Hourly</a>;
-    tenDayTab = <a key="tab-2" style={borderColor} onClick={handler} className="tab tab-active">10 Day</a>;
-  }
-
-  if (tabName === '24 Hourly') {
-    hourlyTab = <a key="tab-1" onClick={handler} className="tab">Hourly</a>;
-    tenDayTab = <a key="tab-2" onClick={handler} className="tab">10 Day</a>;
-    twentyFourTab = <a key="tab-3" style={borderColor} className="tab tab-active">{selectedMonth} {selectedDay}</a>;
-  }
-
+  let hourlyTab;
+  let tenDayTab;
+  let twentyFourTab;
   let tabs;
   let dataView;
 
   switch (tabName) {
     case 'Hourly':
+      hourlyTab = <a key="tab-1" style={borderColor} onClick={handler} className="tab tab-active">Hourly</a>;
+      tenDayTab = <a key="tab-2" onClick={handler} className="tab">10 Day</a>;
+      twentyFourTab = <a key="tab-3" className="tab">{selectedMonth} {selectedDay}</a>;
       dataView = sevenHourData;
       tabs = [hourlyTab, tenDayTab];
       break;
     case '10 Day':
+      hourlyTab = <a key="tab-1" onClick={handler} className="tab">Hourly</a>;
+      tenDayTab = <a key="tab-2" style={borderColor} onClick={handler} className="tab tab-active">10 Day</a>;
       dataView = tenDayData;
       tabs = [hourlyTab, tenDayTab];
       break;
     case '24 Hourly':
+      hourlyTab = <a key="tab-1" onClick={handler} className="tab">Hourly</a>;
+      tenDayTab = <a key="tab-2" onClick={handler} className="tab">10 Day</a>;
+      twentyFourTab = <a key="tab-3" style={borderColor} className="tab tab-active">{selectedMonth} {selectedDay}</a>;
       dataView = twentyFourData;
       tabs = [hourlyTab, tenDayTab, twentyFourTab];
       break;

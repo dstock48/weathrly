@@ -6,7 +6,7 @@ import './AsideForecast.css';
 function AsideForecast({ data }) {
   if (!data.locationInfo) {
     return (
-      <section className="AsideForecast"></section>
+      <section className="AsideForecast" />
     );
   }
 
