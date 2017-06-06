@@ -41,6 +41,7 @@ class Weathrly extends Component {
   setLocation(city) {
     console.log(city);
     this.state.trie.insert(city);
+    this.state.trie.select(city);
     this.setState({ city });
     localStorage.setItem('location', city);
     this.updateWeatherData(city);
@@ -55,18 +56,18 @@ class Weathrly extends Component {
     const url = `http://api.wunderground.com/api/${key}/astronomy/conditions/hourly/forecast/forecast10day/hourly10day/geolookup/q/${city}.json`;  // eslint-disable-line
 
     if (city !== 'no location') {
-      fetch(url)
-      .then(res => res.json())
-      .then((data) => {
-        const cityData = new City(data);
-        this.setState({ cityData, isNotFound: false });
-      })
-      .catch(() => {
-        this.setState({ isNotFound: true });
-        localStorage.location = '';
-      });
-      // const cityData = new City(dataDenver);
-      // this.setState({ cityData });
+      // fetch(url)
+      // .then(res => res.json())
+      // .then((data) => {
+      //   const cityData = new City(data);
+      //   this.setState({ cityData, isNotFound: false });
+      // })
+      // .catch(() => {
+      //   this.setState({ isNotFound: true });
+      //   localStorage.location = '';
+      // });
+      const cityData = new City(dataDenver);
+      this.setState({ cityData });
     }
   }
 
