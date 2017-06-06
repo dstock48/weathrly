@@ -34,13 +34,18 @@ class SearchInput extends Component {
     if (e.key === 'Enter') {
       this.submitHandler();
     }
+    if (e.which === 40) {
+      console.log('test');
+    }
   }
+
   submitHandler(val) {
     const value = val || this.state.inputValue;
     this.props.handler(value);
     this.setState({
       inputValue: '',
     });
+    this.search.value = '';
   }
 
   selectHandler(suggestion) {

@@ -5,7 +5,7 @@ import cityData from './cityDataMock';
 import HourlyRow from '../lib/Weathrly/components/HourlyRow/HourlyRow';
 
 describe('HourlyRow Component', () => {
-  it('should render to the page data passed as props', () => {
+  it('should render the correct data to the page that was passed in as props', () => {
     const data = cityData;
     const hourData = cityData.sevenHourData[0];
     const HourlyRowComp = mount(<HourlyRow key={1} hourData={hourData} data={data} />);
