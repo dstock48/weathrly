@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import SuggestionList from '../SuggestionList/SuggestionList';
 import colorCondition from '../../../utils/colorCondition';
-import Trie from '../../../utils/Trie';
-import cities from '../../../utils/largest1000cities';
 import './SearchInput.css';
 
 class SearchInput extends Component {
@@ -72,7 +70,7 @@ class SearchInput extends Component {
           <button
             className="search-btn"
             style={{ backgroundColor: this.props.accentColor }}
-            onClick={this.submitHandler.bind(this)}
+            onClick={() => this.submitHandler.bind(this)(this.state.inputValue)}
           >
             <img className="search-icon" src="lib/assets/magnifier.svg" alt="" />
           </button>
@@ -123,7 +121,7 @@ class SearchInput extends Component {
         <button
           className="search-btn"
           style={backgroundAccentColor}
-          onClick={this.submitHandler.bind(this)}
+          onClick={() => this.submitHandler.bind(this)(this.state.inputValue)}
         >
           <img className="search-icon" src="lib/assets/magnifier.svg" alt="" />
         </button>

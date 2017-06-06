@@ -39,6 +39,7 @@ class Weathrly extends Component {
   }
 
   setLocation(city) {
+    console.log(city);
     this.state.trie.insert(city);
     this.setState({ city });
     localStorage.setItem('location', city);

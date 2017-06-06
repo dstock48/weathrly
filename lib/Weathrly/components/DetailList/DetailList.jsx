@@ -2,7 +2,7 @@ import React from 'react';
 import HourlyRow from '../HourlyRow/HourlyRow';
 import TenDayRow from '../TenDayRow/TenDayRow';
 import colorCondition from '../../../utils/colorCondition';
-import getRandomKey from '../../../utils/helperFunctions';
+import { getRandomKey } from '../../../utils/helperFunctions';
 import './DetailList.css';
 
 const DetailList = ({ data, tabName, handler, getDay, selectedDay, selectedMonth }) => {

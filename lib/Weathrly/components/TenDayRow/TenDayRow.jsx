@@ -1,16 +1,13 @@
 import React from 'react';
 import weatherIcons from '../../../utils/weather-icons';
-import './TenDayRow.css';
 import colorCondition from '../../../utils/colorCondition';
+import { getAccentColor, getIcon } from '../../../utils/helperFunctions';
+import './TenDayRow.css';
 
 function TenDayRow({ dayData, data, getDay }) {
   const accentColor = colorCondition[data.condition].accentColor;
-  let tempColor = { color: accentColor };
-  if (data.currentHour >= data.sunSetTime || data.currentHour <= data.sunRiseTime) {
-    tempColor = { color: '#A332D6' };
-  }
-
-  const icon = `./lib/assets/weather-icons/grey/${weatherIcons[dayData.icon]}.svg`;
+  const tempColor = getAccentColor(accentColor, data);
+  const icon = getIcon(weatherIcons, dayData, data);
   const highLow = `${dayData.highTemp}° / ${dayData.lowTemp}°`;
   const dayMonth = `${dayData.month} ${dayData.day}`;
 
