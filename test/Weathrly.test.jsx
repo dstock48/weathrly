@@ -20,7 +20,6 @@ describe('Weathrly Component', () => {
 
   window.localStorage = storageMock();
 
-
   it('should render welcome view to the page when no location is set', () => {
     let WeathrlyComp = mount(<Weathrly />);
     let welcomeHeading = <h1 className="welcome-msg">Welcome!</h1>;
@@ -40,7 +39,7 @@ describe('Weathrly Component', () => {
     localStorage.clear();
     expect(WeathrlyComp.contains(welcomeHeading)).toEqual(true);
 
-    localStorage.location = 'denver, co'
+    localStorage.location = 'denver, co';
     WeathrlyComp = mount(<Weathrly />);
 
     expect(WeathrlyComp.contains( <section className="AsideForecast" /> )).toEqual(true);
