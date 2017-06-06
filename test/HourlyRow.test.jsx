@@ -18,10 +18,16 @@ describe('HourlyRow Component', () => {
 
   it('should render night accent color correclty depending on sunset time', () => {
     const data = cityData;
-    data.currentHour = 20;
     const hourData = cityData.sevenHourData[0];
-    const HourlyRowComp = mount(<HourlyRow key={1} hourData={hourData} data={data} />);
 
+    data.currentHour = 11; // 11:00am
+    let HourlyRowComp = mount(<HourlyRow key={1} hourData={hourData} data={data} />);
+
+    expect(HourlyRowComp.find('.hourly-temp').prop('style').color).toEqual('#E86868');
+
+    data.currentHour = 20; // 8:00pm
+    HourlyRowComp = mount(<HourlyRow key={1} hourData={hourData} data={data} />);
+    
     expect(HourlyRowComp.find('.hourly-temp').prop('style').color).toEqual('#A332D6');
   });
 });
