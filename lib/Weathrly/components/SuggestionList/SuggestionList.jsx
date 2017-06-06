@@ -1,5 +1,5 @@
 import React from 'react';
-import getRandomKey from '../../../utils/helperFunctions';
+import { getRandomKey } from '../../../utils/helperFunctions';
 import './SuggestionList.css';
 
 function SuggestionList({ suggestions, selectHandler }) {

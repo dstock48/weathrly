@@ -1,22 +1,13 @@
 import React from 'react';
 import weatherIcons from '../../../utils/weather-icons';
-import './HourlyRow.css';
 import colorCondition from '../../../utils/colorCondition';
+import { getAccentColor, getIcon } from '../../../utils/helperFunctions';
+import './HourlyRow.css';
 
 function HourlyRow({ hourData, data }) {
   const accentColor = colorCondition[data.condition].accentColor;
-  let icon = `./lib/assets/weather-icons/grey/${weatherIcons[hourData.icon]}.svg`;
-  let tempColor = { color: accentColor };
-
-  if (data.currentHour >= data.sunSetTime ||
-      data.currentHour <= data.sunRiseTime) {
-    tempColor = { color: '#A332D6' };
-  }
-
-  if (hourData.hour >= data.sunSetTime ||
-      hourData.hour <= data.sunRiseTime) {
-    icon = `./lib/assets/weather-icons/grey/${weatherIcons[`nt_${hourData.icon}`]}.svg`;
-  }
+  const tempColor = getAccentColor(accentColor, data);
+  const icon = getIcon(weatherIcons, hourData, data);
 
   return (
     <article className="HourlyRow">
