@@ -9,11 +9,15 @@ describe('Weathrly Component', () => {
     const storage = {};
     return {
       location: 'oakland, ca',
+
       clear() {
         return this.location = '';
       },
       getItem(key) {
         return key in storage ? storage[key] : null;
+      },
+      setItem: function(key, value) {
+        storage[key] = value.toString();
       }
     };
   };
@@ -67,5 +71,15 @@ describe('Weathrly Component', () => {
     WeathrlyComp.instance().changeTab({target: {textContent: '10 Day'}})
 
     expect(WeathrlyComp.state().tabName).toEqual('10 Day')
+  });
+
+  it('should change city in state when the setLocation fn is ran', () => {
+    let WeathrlyComp = mount(<Weathrly />);
+
+    expect(WeathrlyComp.state().city).toEqual('no location')
+
+    WeathrlyComp.instance().setLocation('denver, co')
+
+    expect(WeathrlyComp.state().city).toEqual('denver, co')
   });
 });
