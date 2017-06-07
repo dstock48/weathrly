@@ -19,3 +19,18 @@
   color: #fff;
   cursor: pointer;
 }
+.suggestion:hover .suggestion-btn {
+  color: #fff;
+}
+
+.suggestion-btn {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+}
+.suggestion-btn:hover {
+  color: #fff;
+  cursor: pointer;
+}

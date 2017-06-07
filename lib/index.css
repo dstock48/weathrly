@@ -153,4 +153,13 @@ h1, h2, h3, p {
   .row-sec {
     margin-left: 25px;
   }
+
+  .ErrorStyle .search-input {
+    width: 240px;
+  }
+
+  .emoji {
+    font-size: 80px;
+    margin-bottom: 0;
+  }
 }

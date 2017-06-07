@@ -4,12 +4,20 @@ import './SuggestionList.css';
 
 function SuggestionList({ suggestions, selectHandler }) {
   const suggestionsArray = suggestions.slice(0, 5).map(e =>
-    <li key={getRandomKey()} className="suggestion" onClick={() => selectHandler(e)}>{e}</li>);
+//    <option value={e} key={getRandomKey()} className="suggestion" />
+    <li key={getRandomKey()} className="suggestion" onClick={() => selectHandler(e)}>
+      <button className="suggestion-btn">{e}</button>
+    </li>
+  );
 
   return (
-    <section className="SuggestionList">
+    <section id="SuggestionList" className="SuggestionList">
       {suggestionsArray}
     </section>
+
+  //  <datalist id="SuggestionList" className="SuggestionList">
+  //    {suggestionsArray}
+  //  </datalist>
   );
 }
 

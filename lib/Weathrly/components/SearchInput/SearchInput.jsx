@@ -58,6 +58,7 @@ class SearchInput extends Component {
       return (
         <section className="ErrorStyle">
           <input
+            list="SuggestionList"
             ref={(input) => { this.search = input; }}
             type="text"
             onKeyUp={this.enterKeyHandler.bind(this)}
@@ -110,6 +111,7 @@ class SearchInput extends Component {
     return (
       <section className="SearchInput">
         <input
+          list="SuggestionList"
           ref={(input) => { this.search = input; }}
           type="text"
           onKeyUp={this.enterKeyHandler.bind(this)}
