@@ -28,6 +28,14 @@ class Weathrly extends Component {
   componentDidMount() {
     this.updateWeatherData(this.state.city);
     this.state.trie.populate(cities.data);
+    if (!localStorage.getItem('insert')) {
+      localStorage.setItem('insert', JSON.stringify([]));
+    }
+    if (!localStorage.getItem('select')) {
+      localStorage.setItem('select', JSON.stringify([]));
+    }
+    JSON.parse(localStorage.getItem('insert')).forEach(e => this.state.trie.insert(e));
+    JSON.parse(localStorage.getItem('select')).forEach(e => this.state.trie.select(e));
   }
 
   getDayHandler(e) {
@@ -39,10 +47,16 @@ class Weathrly extends Component {
   }
 
   setLocation(city) {
+    const insertCity = JSON.parse(localStorage.getItem('insert')) || [];
+    const selectCity = JSON.parse(localStorage.getItem('select')) || [];
+    insertCity.push(city);
+    selectCity.push(city);
     this.state.trie.insert(city);
     this.state.trie.select(city);
     this.setState({ city });
     localStorage.setItem('location', city);
+    localStorage.setItem('insert', JSON.stringify(insertCity));
+    localStorage.setItem('select', JSON.stringify(selectCity));
     this.updateWeatherData(city);
   }
 
@@ -55,18 +69,18 @@ class Weathrly extends Component {
     const url = `http://api.wunderground.com/api/${key}/astronomy/conditions/hourly/forecast/forecast10day/hourly10day/geolookup/q/${city}.json`;  // eslint-disable-line
 
     if (city !== 'no location') {
-      fetch(url)
-      .then(res => res.json())
-      .then((data) => {
-        const cityData = new City(data);
-        this.setState({ cityData, isNotFound: false });
-      })
-      .catch(() => {
-        this.setState({ isNotFound: true });
-        localStorage.location = '';
-      });
-      // const cityData = new City(dataDenver);
-      // this.setState({ cityData });
+      // fetch(url)
+      // .then(res => res.json())
+      // .then((data) => {
+      //   const cityData = new City(data);
+      //   this.setState({ cityData, isNotFound: false });
+      // })
+      // .catch(() => {
+      //   this.setState({ isNotFound: true });
+      //   localStorage.location = '';
+      // });
+      const cityData = new City(dataDenver);
+      this.setState({ cityData });
     }
   }
 
