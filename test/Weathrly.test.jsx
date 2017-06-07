@@ -14,7 +14,7 @@ describe('Weathrly Component', () => {
       },
       getItem(key) {
         return key in storage ? storage[key] : null;
-      },
+      }
     };
   };
 
@@ -57,5 +57,15 @@ describe('Weathrly Component', () => {
     expect(WeathrlyComp.state().isNotFound).toEqual(true)
     expect(WeathrlyComp.contains( errorHeading )).toEqual(true);
 
+  });
+
+  it('should change tabName in state when the changeTab fn is ran', () => {
+    let WeathrlyComp = mount(<Weathrly />);
+
+    expect(WeathrlyComp.state().tabName).toEqual('Hourly')
+
+    WeathrlyComp.instance().changeTab({target: {textContent: '10 Day'}})
+
+    expect(WeathrlyComp.state().tabName).toEqual('10 Day')
   });
 });
