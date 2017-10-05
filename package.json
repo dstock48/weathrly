@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --open --inline",
     "build": "webpack",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "npm run build && gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^1.5.5",
     "eslint-plugin-react": "^5.2.2",
+    "gh-pages": "^1.0.0",
     "jest": "^20.0.4",
     "mocha": "^2.4.5",
     "mocha-loader": "^0.7.1",
