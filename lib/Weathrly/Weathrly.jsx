@@ -52,7 +52,7 @@ class Weathrly extends Component {
   }
 
   updateWeatherData(city) {
-    const url = `http://api.wunderground.com/api/${key}/astronomy/conditions/hourly/forecast/forecast10day/hourly10day/geolookup/q/${city}.json`;  // eslint-disable-line
+    const url = `https://api.wunderground.com/api/${key}/astronomy/conditions/hourly/forecast/forecast10day/hourly10day/geolookup/q/${city}.json`;  // eslint-disable-line
 
     if (city !== 'no location') {
       fetch(url)
