@@ -29962,7 +29962,7 @@
 	    value: function updateWeatherData(city) {
 	      var _this2 = this;
 
-	      var url = 'http://api.wunderground.com/api/' + _apiKey2.default + '/astronomy/conditions/hourly/forecast/forecast10day/hourly10day/geolookup/q/' + city + '.json'; // eslint-disable-line
+	      var url = 'https://api.wunderground.com/api/' + _apiKey2.default + '/astronomy/conditions/hourly/forecast/forecast10day/hourly10day/geolookup/q/' + city + '.json'; // eslint-disable-line
 
 	      if (city !== 'no location') {
 	        fetch(url).then(function (res) {
